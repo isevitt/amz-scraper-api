@@ -1,14 +1,22 @@
 from flask import Flask, request
-import datetime
-import requests 
+from dbhelper import DBHelper
+import sys
 
 app = Flask(__name__)
+DB = DBHelper()
 
-@app.route("/start")
-def send_scrape_request():
-    merchant_id = request.args.get("merchant_id")
-    
-    return f"request was sent for merchant id {merchant_id}, status code: {resp.status_code}" 
+
+@app.route("/start", methods=["GET"])
+def insert_request_to_db():
+    try:
+        merchant_id = request.args.get("merchant_id")
+        DB.add_input(merchant_id)
+        return f"request was received for merchant id:  {merchant_id}"
+    except Exception as e:
+        return f"Error {e}"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
