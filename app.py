@@ -12,7 +12,7 @@ def insert_request_to_db():
         print("getting merchant....", file=sys.stdout)
         merchant_id = request.args.get("merchant_id")
         print(f"merchant id is {merchant_id}", file=sys.stdout)
-        DB.add_input(merchant_id)
+        # DB.add_input(merchant_id)
         return f"request was received for merchant id:  {merchant_id}"
     except Exception as e:
         return f"Error {e}"
