@@ -16,6 +16,10 @@ def insert_request_to_db():
     except Exception as e:
         return f"Error {e}"
 
+@app.route("/", methods=["GET", "POST"])
+def nothing():
+    return "Endpoint Not implemented"
+
 
 if __name__ == '__main__':
     app.run(debug=True)
