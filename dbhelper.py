@@ -4,7 +4,7 @@ import sys
 
 class DBHelper:
     def connect(self):
-        return pymysql.connect(host='us-cdbr-iron-east-04.cleardb.net',
+        return pymysql.connect(host=dbconfig.host,
                                user=dbconfig.USERNAME,
                                passwd=dbconfig.PASS,
                                db=dbconfig.database)
