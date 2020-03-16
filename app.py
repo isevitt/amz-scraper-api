@@ -6,7 +6,7 @@ app = Flask(__name__)
 DB = DBHelper()
 
 
-@app.route("/start", methods=["GET"])
+@app.route("/start", methods=["GET", "POST"])
 def insert_request_to_db():
     try:
         print("getting merchant....", file=sys.stdout)
